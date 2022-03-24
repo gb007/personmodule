@@ -170,6 +170,7 @@ class PersonInfoActivity : AppCompatActivity(), View.OnClickListener {
             local_head_view_path = picPaths[0].imagePath
             if (!local_head_view_path.isEmpty())
                 isLocal = true
+            ImageUtils.setRoundImage(this, img_head_view, ImageUtils.getImageStreamFromInternal(local_head_view_path).toString())
         }
     }
 

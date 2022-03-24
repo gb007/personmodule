@@ -65,4 +65,18 @@ object ImageUtils {
         }
         return uri
     }
+
+
+    fun getImageStreamFromInternal(path: String?): Uri? {
+//        val externalPubPath = Environment.getExternalStoragePublicDirectory(
+//            Environment.DIRECTORY_PICTURES
+//        )
+        val picPath = File(path)
+        var uri: Uri? = null
+        if (picPath.exists()) {
+            uri = Uri.fromFile(picPath)
+        }
+        return uri
+    }
+
 }
