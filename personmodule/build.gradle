@@ -65,4 +65,9 @@ dependencies {
     //Alert提示框
     implementation 'com.github.mylhyl:Android-CircleDialog:5.3.9'
 
+    //------------扫码模块---------
+    implementation 'com.github.gb007:qrcodemodule:1.0.1'
+    //权限申请，也可不添加，使用自己的权限申请代码
+    implementation 'pub.devrel:easypermissions:1.0.1'
+    //------------扫码模块---------
 }

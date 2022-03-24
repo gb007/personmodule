@@ -1,5 +1,6 @@
 package com.hollysmart.personmodule.fragment
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.allen.library.SuperTextView
 import com.facebook.drawee.view.SimpleDraweeView
@@ -15,6 +17,9 @@ import com.hollysmart.personmodule.R
 import com.hollysmart.personmodule.activity.*
 import com.hollysmart.personmodule.common.PersonConfig
 import com.hollysmart.personmodule.utils.ImageUtils
+import com.hollysmart.zxingqrcodemodule.GenerateCodeActivity
+import com.hollysmart.zxingqrcodemodule.ScanCodeActivity
+import pub.devrel.easypermissions.EasyPermissions
 
 class PersonInfoFragment : Fragment(), View.OnClickListener {
 
@@ -31,6 +36,8 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
     lateinit var stv_about: SuperTextView
     lateinit var btn_logout: Button
     lateinit var personConfig: PersonConfig
+
+    var REQUEST_CODE_SACN_QRCODE: Int = 1001
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,6 +120,13 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
 
             }
             R.id.stv_scan -> {
+                //跳转扫码识别二维码（条形码）页面
+                requestCodeQRCodePermissions()
+
+//                startActivityForResult(
+//                    Intent(activity, ScanCodeActivity::class.java),
+//                    REQUEST_CODE_SACN_QRCODE
+//                )
 
             }
             R.id.stv_setting -> {
@@ -144,5 +158,34 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
     private fun setPersionConfig(config: PersonConfig) {
         personConfig = config
     }
+
+    //接收二维码（条形码）扫描结果
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_SACN_QRCODE) {
+            var result = data?.getStringExtra("scanResult")
+            Toast.makeText(activity, result, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun requestCodeQRCodePermissions() {
+        val perms = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE)
+        if (!EasyPermissions.hasPermissions(activity, *perms)) {
+            EasyPermissions.requestPermissions(
+                this,
+                "扫描二维码需要打开相机和散光灯的权限",
+                1,
+                *perms
+            )
+        } else {
+            startActivityForResult(
+                Intent(activity, ScanCodeActivity::class.java),
+                REQUEST_CODE_SACN_QRCODE
+            )
+
+        }
+    }
+
+
 
 }
