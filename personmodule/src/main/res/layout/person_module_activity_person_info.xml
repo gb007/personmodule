@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.PersonInfoActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/person_module_white">
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/person_module_icon_backx3"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"/>
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxWidth="220dp"
+            android:singleLine="true"
+            android:textColor="@color/person_module_black_3"
+            android:textSize="@dimen/person_module_text_da"
+            android:text="个人信息"/>
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:minWidth="60dp"
+            android:paddingRight="8dp"
+            android:text="@string/person_module_save"
+            android:textColor="@color/person_module_black_3"
+            android:textSize="@dimen/person_module_text_zhong"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="15dp"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/person_module_white">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/img_head_view"
+            fresco:placeholderImage="@mipmap/person_module_head_image"
+            fresco:roundAsCircle="true"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/person_module_icon_camera"
+            android:layout_below="@+id/img_head_view"
+            android:layout_toRightOf="@+id/img_head_view"
+            android:layout_marginLeft="-24dp"
+            android:layout_marginTop="-24dp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="姓名："
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/person_module_black_3"
+        android:textSize="@dimen/person_module_text_zhong"/>
+
+    <EditText
+        android:id="@+id/edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:background="@drawable/person_module_edit_background"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="部门："
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/person_module_black_3"
+        android:textSize="@dimen/person_module_text_zhong"/>
+
+    <EditText
+        android:id="@+id/edt_dep"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"
+        android:background="@drawable/person_module_edit_background"/>
+
+
+</LinearLayout>

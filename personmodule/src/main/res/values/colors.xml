@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="person_module_colorPrimary">#629FEB</color>
+    <color name="person_module_colorPrimaryDark">#629FEB</color>
+    <color name="person_module_colorAccent">#7e7e7e</color>
+    <color name="person_module_white">#ffffff</color>
+    <color name="person_module_black">#000000</color>
+    <color name="person_module_gray">#999999</color>
+    <color name="person_module_yellow">#F6DB61</color>
+    <color name="person_module_transparent">#00000000</color>
+    <color name="person_module_titleBg">#629FEB</color>
+    <color name="person_module_black_3">#333333</color>
+    <color name="person_module_black_14">#141414</color>
+
+    <color name="person_module_huise_bg">#f0f0f0</color>
+    <color name="person_module_gray_52">#525252</color>
+    <color name="person_module_gray_d9">#D9D9D9</color>
+
+    <color name="person_module_blue_color">#108ee9</color>
+
+
+
+    <color name="person_module_color_606060">#606060</color>
+    <color name="person_module_color_fbfbfd">#fbfbfb</color>
+    <color name="person_module_color_eeeeee">#eeeeee</color>
+
+</resources>

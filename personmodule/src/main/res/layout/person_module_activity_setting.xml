@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.PersonInfoActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/person_module_white">
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:src="@mipmap/person_module_icon_backx3" />
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxWidth="220dp"
+            android:singleLine="true"
+            android:text="系统设置"
+            android:textColor="@color/person_module_black_3"
+            android:textSize="@dimen/person_module_text_da" />
+
+
+    </RelativeLayout>
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/stv_access_type"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        stv:sLeftTextColor="@color/person_module_black"
+        stv:sLeftTextSize="15sp"
+        stv:sLeftTextString="登录认证"
+        stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/person_module_gray_d9"></View>
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/stv_cache"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftTextColor="@color/person_module_black"
+        stv:sLeftTextSize="15sp"
+        stv:sLeftTextString="清除缓存"
+        stv:sRightIconRes="@drawable/person_module_ic_right_next"
+        stv:sRightTextColor="@color/person_module_gray_52"
+        stv:sRightTextSize="15sp"
+        stv:sRightTextString="0.0M" />
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/stv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        stv:sCenterTextColor="@color/person_module_black"
+        stv:sCenterTextSize="15sp"
+        stv:sCenterTextString="退出登录" />
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/stv_deactvation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        stv:sCenterTextColor="@color/person_module_black"
+        stv:sCenterTextSize="15sp"
+        stv:sCenterTextString="注销账号" />
+
+</LinearLayout>

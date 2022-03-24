@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".activity.PersonInfoActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/person_module_white">
+
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:src="@mipmap/person_module_icon_backx3" />
+
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:maxWidth="220dp"
+                android:singleLine="true"
+                android:text="关于我们"
+                android:textColor="@color/person_module_black_3"
+                android:textSize="@dimen/person_module_text_da" />
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/person_module_icon_camera"></ImageView>
+
+            <TextView
+                android:id="@+id/tv_appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:singleLine="true"
+                android:text="测试版本_登陆模块"
+                android:textColor="@color/person_module_black"
+                android:textSize="@dimen/person_module_text_da" />
+
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="版本：1.0.0"
+                android:textColor="@color/person_module_black"
+                android:textSize="@dimen/person_module_text_xiao" />
+
+
+        </LinearLayout>
+
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/stv_new_version"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            stv:sLeftTextColor="@color/person_module_black"
+            stv:sLeftTextSize="15sp"
+            stv:sLeftTextString="版本更新"
+            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《软件许可及服务协议》"
+            android:textColor="#545977"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="《隐私保护指引》"
+            android:textColor="#545977"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_copyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="北京市机关事务管理局  版权所有"
+            android:textColor="#B2B2B2"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/tv_copyright_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/person_module_str_copyright"
+            android:textColor="#B2B2B2"
+            android:textSize="10dp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<resources>
+
+
+    <!--    我-->
+    <string name="person_module_department">部门：</string>
+    <string name="person_module_login_out">退出登录</string>
+    <string name="person_module_profile_data">个人信息</string>
+    <string name="person_module_password_setting">修改密码</string>
+    <string name="person_module_version">版本号:</string>
+    <string name="person_module_setting">系统设置</string>
+
+
+    <string name="person_module_input_old_password">请输入旧密码</string>
+    <string name="person_module_input_new_password">请输入新密码</string>
+    <string name="person_module_input_confirm_new_password">请输入确认密码</string>
+    <string name="person_module_confirm_password_error">新密码与确认密码不一致</string>
+    <string name="person_module_password_length_bigger_4">新密码长度至少6位</string>
+    <string name="person_module_confirm_password_length_bigger_4">确认密码长度至少6位</string>
+    <string name="person_module_password_regex">请输入6-10位字母+数字组合的新密码</string>
+    <string name="person_module_confirm_password_regex">请输入6-10位字母+数字组合的确认密码</string>
+    <string name="person_module_new_password_is_equal_old_password">原始密码与新设置密码相同</string>
+
+
+    <string name="person_module_my_sign_in">我的收藏</string>
+    <string name="person_module_my_share">我的分享</string>
+    <string name="person_module_scan">扫一扫</string>
+
+
+    <string name="person_module_feedback">意见反馈</string>
+    <string name="person_module_about">关于我们</string>
+
+    <string name="person_module_save">保存</string>
+
+    <string name="person_module_str_copyright">Copyright \u00a9 2019-2020 All Rights Reserved</string>
+
+
+</resources>

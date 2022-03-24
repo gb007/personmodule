@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/person_module_white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/person_module_white">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:src="@mipmap/person_module_icon_backx3" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:maxWidth="220dp"
+                android:singleLine="true"
+                android:text="意见反馈"
+                android:textColor="@color/person_module_black_3"
+                android:textSize="@dimen/person_module_text_da" />
+
+
+        </RelativeLayout>
+
+
+        <com.allen.library.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            stv:sLeftIconRes="@mipmap/person_module_icon_question"
+            stv:sLeftTextColor="@color/person_module_black"
+            stv:sLeftTextSize="18sp"
+            stv:sLeftTextString="您遇到问题了吗？" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:text="请选择一个问题类型"
+            android:textColor="@color/person_module_black_3"
+            android:textSize="@dimen/person_module_text_zhong" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="8dp">
+
+            <Button
+                android:id="@+id/btn_ques_ui"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:background="@drawable/person_module_shape_btn_gray"
+                android:text="UI页面"
+                android:textColor="@color/person_module_black_3"
+                android:textSize="@dimen/person_module_text_xiao" />
+
+            <Button
+                android:id="@+id/btn_ques_func"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/person_module_shape_btn_gray"
+                android:text="功能问题"
+                android:textColor="@color/person_module_black_3"
+                android:textSize="@dimen/person_module_text_xiao" />
+
+
+            <Button
+                android:id="@+id/btn_ques_experience"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/person_module_shape_btn_gray"
+                android:text="用户体验"
+                android:textColor="@color/person_module_black_3"
+                android:textSize="@dimen/person_module_text_xiao" />
+
+            <Button
+                android:id="@+id/btn_ques_characteristic"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/person_module_shape_btn_gray"
+                android:text="新特性"
+                android:textColor="@color/person_module_black_3"
+                android:textSize="@dimen/person_module_text_xiao" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_ques_other"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/person_module_shape_btn_gray"
+            android:text="其他问题"
+            android:textColor="@color/person_module_black_3"
+            android:textSize="@dimen/person_module_text_xiao" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/person_module_gray_d9"></View>
+
+
+        <com.allen.library.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            stv:sDividerLineColor="@color/imagepicker_transparent"
+            stv:sLeftIconRes="@mipmap/person_module_icon_describe"
+            stv:sLeftTextColor="@color/person_module_black"
+            stv:sLeftTextSize="@dimen/person_module_text_zhong"
+            stv:sLeftTextString="详细描述" />
+
+
+        <EditText
+            android:id="@+id/edt_describe"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/person_module_edit_background_gray"
+            android:gravity="top"
+            android:hint="请输入详细描述（5～1024个字）"
+            android:lines="6"
+            android:padding="8dp"
+            android:textColor="@color/person_module_black_3"
+            android:textColorHint="@color/person_module_gray"
+            android:textSize="@dimen/person_module_text_zhong" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:id="@+id/img_pic"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/person_module_icon_pic"></ImageView>
+
+            <TextView
+                android:id="@+id/tv_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/img_pic"
+                android:text="照片"
+                android:textColor="@color/person_module_black"
+                android:textSize="@dimen/person_module_text_zhong"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/tv_pic"
+                android:text="请上传png或jpg格式图片，且图片大小不超过1M"
+                android:textColor="@color/person_module_gray_d9"
+                android:textSize="@dimen/person_module_text_xiao_12"></TextView>
+
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp">
+
+            <com.hollysmart.personmodule.linearlayoutforlistview.MyLinearLayoutForListView
+                android:id="@+id/ll_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+
+        <com.allen.library.SuperTextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            stv:sDividerLineColor="@color/imagepicker_transparent"
+            stv:sLeftIconRes="@mipmap/person_module_icon_describe"
+            stv:sLeftTextColor="@color/person_module_black"
+            stv:sLeftTextSize="@dimen/person_module_text_zhong"
+            stv:sLeftTextString="联系方式" />
+
+        <EditText
+            android:id="@+id/edt_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="请填写您的联系方式"
+            android:layout_marginHorizontal="16dp"/>
+
+
+        <Button
+            android:id="@+id/btn_feedback_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/person_module_shape_btn_blue"
+            android:text="提 交"
+            android:textColor="@color/person_module_white"
+            android:textSize="@dimen/person_module_text_da" />
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>
