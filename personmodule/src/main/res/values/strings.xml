@@ -4,6 +4,7 @@
     <!--    我-->
     <string name="person_module_department">部门：</string>
     <string name="person_module_login_out">退出登录</string>
+    <string name="person_module_switch_account">切换账号</string>
     <string name="person_module_profile_data">个人信息</string>
     <string name="person_module_password_setting">修改密码</string>
     <string name="person_module_version">版本号:</string>
@@ -28,7 +29,7 @@
 
     <string name="person_module_feedback">意见反馈</string>
     <string name="person_module_about">关于我们</string>
-
+    <string name="person_module_clear_cache">清除缓存</string>
     <string name="person_module_save">保存</string>
 
     <string name="person_module_str_copyright">Copyright \u00a9 2019-2020 All Rights Reserved</string>

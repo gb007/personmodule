@@ -2,21 +2,22 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:stv="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/person_module_huise_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/person_module_huise_bg"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/person_module_white">
+            android:background="@color/person_module_white"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tv_title"
@@ -31,15 +32,14 @@
 
         </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
 
         <LinearLayout
+            android:id="@+id/ll_person"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/person_module_white"
-            android:orientation="horizontal">
+            android:layout_marginTop="48dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/img_head_view"
@@ -50,176 +50,233 @@
                 fresco:roundAsCircle="true" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="0.3"
-                    android:orientation="horizontal">
+                    android:text="张三李四"
+                    android:textColor="@color/person_module_black"
+                    android:textSize="20sp" />
 
-
-                    <TextView
-                        android:id="@+id/tv_username"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="张三李四"
-                        android:textColor="@color/person_module_black"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tv_department"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.3"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/person_module_department"
-                        android:textColor="@color/person_module_gray"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/tv_department"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="信息化技术保障中心"
-                        android:textColor="@color/person_module_gray"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                    android:layout_marginTop="8dp"
+                    android:text="信息化技术保障中心"
+                    android:textColor="@color/person_module_gray"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/person_module_ic_right_next">
+
+            </ImageView>
+
+
         </LinearLayout>
 
-        <!--        <View style="@style/horizontal_line_style" />-->
 
-        <View
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleview"
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_person"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_person"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_profile_data"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_password_edit"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_repassword"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_password_setting"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_favorite"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_favorite"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_my_sign_in"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_share"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_share"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_my_share"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_scan"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_scan"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_scan"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_setting"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_setting"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_setting"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_feedback"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_feedback"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
-
-        <com.allen.library.SuperTextView
-            android:id="@+id/stv_about"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            stv:sLeftIconRes="@mipmap/person_module_icon_about"
-            stv:sLeftTextColor="@color/person_module_black"
-            stv:sLeftTextSize="15sp"
-            stv:sLeftTextString="@string/person_module_about"
-            stv:sRightIconRes="@drawable/person_module_ic_right_next" />
-
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="18dp"
+            android:background="@drawable/person_module_bg_fillet_white_10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="@color/person_module_white"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/person_module_bg_fillet_white_10dp"
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
+
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_one"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftIconRes="@mipmap/person_module_icon_person"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_profile_data"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_two"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftIconRes="@mipmap/person_module_icon_person"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_profile_data"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_person"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:visibility="gone"
+                stv:sLeftIconRes="@mipmap/person_module_icon_person"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_profile_data"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:visibility="gone"
+                stv:sLeftIconRes="@mipmap/person_module_icon_repassword"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_password_setting"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:visibility="gone" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:visibility="gone"
+                stv:sLeftIconRes="@mipmap/person_module_icon_favorite"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_my_sign_in"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_share"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:visibility="gone"
+                stv:sLeftIconRes="@mipmap/person_module_icon_share"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_my_share"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_scan"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftIconRes="@mipmap/person_module_icon_scan"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_scan"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_setting"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftIconRes="@mipmap/person_module_icon_setting"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_setting"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftIconRes="@mipmap/person_module_icon_feedback"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_feedback"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_about"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftIconRes="@mipmap/person_module_icon_about"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_about"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+            <com.allen.library.SuperTextView
+                android:id="@+id/stv_clear_cache"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                stv:sLeftIconRes="@mipmap/person_module_icon_about"
+                stv:sLeftTextColor="@color/person_module_black"
+                stv:sLeftTextSize="15sp"
+                stv:sLeftTextString="@string/person_module_clear_cache"
+                stv:sRightIconRes="@drawable/person_module_ic_right_next" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="18dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingTop="20dp"
-            android:visibility="gone">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_logout"
-                style="@style/style_button"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/person_module_selector_btn_negative"
-                android:text="@string/person_module_login_out" />
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/person_module_bg_fillet_blue_25dp"
+                android:text="@string/person_module_login_out"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_switch_account"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/person_module_bg_fillet_blue_boder_25dp"
+                android:text="@string/person_module_switch_account"
+                android:textColor="@color/person_module_blue_34"
+                android:textSize="15sp" />
+
         </LinearLayout>
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/person_module_huise_bg"
+            android:visibility="visible" />
 
     </LinearLayout>
 

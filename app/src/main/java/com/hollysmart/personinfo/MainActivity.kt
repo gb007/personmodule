@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.facebook.drawee.backends.pipeline.Fresco
+import com.hollysmart.personmodule.bean.PersonFuncItemBean
 import com.hollysmart.personmodule.common.PersonConfig
 import com.hollysmart.personmodule.fragment.PersonInfoFragment
 
@@ -19,6 +20,32 @@ class MainActivity : AppCompatActivity() {
         personConfig.userName = "张shanshan"
         //用户部门
         personConfig.department = "信息化技术运营保障中心"
+
+        //用户姓名
+        personConfig.phoneNumber = "13223412345"
+
+        //功能按钮List
+        var itemList = mutableListOf<PersonFuncItemBean>()
+        var collectionItemBean :PersonFuncItemBean = PersonFuncItemBean()
+        collectionItemBean.itemName = "收藏"
+        collectionItemBean.iconResource = R.mipmap.icon_collection
+        var thumbItemBean :PersonFuncItemBean = PersonFuncItemBean()
+        thumbItemBean.itemName = "点赞"
+        thumbItemBean.iconResource = R.mipmap.icon_thumb
+        var commentItemBean :PersonFuncItemBean = PersonFuncItemBean()
+        commentItemBean.itemName = "评论"
+        commentItemBean.iconResource = R.mipmap.icon_comment
+        var shareItemBean :PersonFuncItemBean = PersonFuncItemBean()
+        shareItemBean.itemName = "分享"
+        shareItemBean.iconResource = R.mipmap.icon_share
+
+        itemList.add(collectionItemBean)
+        itemList.add(shareItemBean)
+        itemList.add(thumbItemBean)
+        itemList.add(commentItemBean)
+
+        personConfig.personFuncList =  itemList
+
         //用户头像url
         personConfig.headviewUrl =
             "https://img0.baidu.com/it/u=859314309,692804921&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400"

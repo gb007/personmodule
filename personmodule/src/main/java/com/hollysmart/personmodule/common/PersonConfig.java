@@ -2,13 +2,21 @@ package com.hollysmart.personmodule.common;
 
 import android.view.View;
 
+import com.hollysmart.personmodule.bean.PersonFuncItemBean;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class PersonConfig implements Serializable {
 
     private String userName;
     private String department;
+    private String phoneNumber;
     private String headviewUrl;
+    private List<PersonFuncItemBean> personFuncList;
+
+
+
     private int showFavor;
     private int showShare;
     private int showScan;
@@ -141,5 +149,21 @@ public class PersonConfig implements Serializable {
 
     public void setServiceTitle(String serviceTitle) {
         this.serviceTitle = serviceTitle;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public List<PersonFuncItemBean> getPersonFuncList() {
+        return personFuncList;
+    }
+
+    public void setPersonFuncList(List<PersonFuncItemBean> personFuncList) {
+        this.personFuncList = personFuncList;
     }
 }

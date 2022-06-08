@@ -8,24 +8,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.allen.library.SuperTextView
 import com.facebook.drawee.view.SimpleDraweeView
 import com.hollysmart.personmodule.R
 import com.hollysmart.personmodule.activity.*
+import com.hollysmart.personmodule.adapter.ItemFuncRecyclerViewAdapter
 import com.hollysmart.personmodule.common.PersonConfig
 import com.hollysmart.personmodule.utils.ImageUtils
 import com.hollysmart.zxingqrcodemodule.GenerateCodeActivity
 import com.hollysmart.zxingqrcodemodule.ScanCodeActivity
 import pub.devrel.easypermissions.EasyPermissions
+import androidx.recyclerview.widget.GridLayoutManager
+
+
+
 
 class PersonInfoFragment : Fragment(), View.OnClickListener {
 
+    lateinit var ll_person: LinearLayout
     lateinit var img_head_view: SimpleDraweeView
     lateinit var tv_username: TextView
     lateinit var tv_department: TextView
+
+    lateinit var recycleview: RecyclerView
+    lateinit var stv_one: SuperTextView
+    lateinit var stv_two: SuperTextView
+
     lateinit var stv_person: SuperTextView
     lateinit var stv_password_edit: SuperTextView
     lateinit var stv_favorite: SuperTextView
@@ -34,8 +47,10 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
     lateinit var stv_setting: SuperTextView
     lateinit var stv_feedback: SuperTextView
     lateinit var stv_about: SuperTextView
+    lateinit var stv_clear_cache :SuperTextView
     lateinit var btn_logout: Button
     lateinit var personConfig: PersonConfig
+    private lateinit var itemFuncAdapter: ItemFuncRecyclerViewAdapter
 
     var REQUEST_CODE_SACN_QRCODE: Int = 1001
 
@@ -60,10 +75,14 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
 
     private fun initeView(view: View) {
 
+        ll_person = view.findViewById(R.id.ll_person)
         img_head_view = view.findViewById(R.id.img_head_view)
         tv_username = view.findViewById(R.id.tv_username)
         tv_department = view.findViewById(R.id.tv_department)
-        stv_person = view.findViewById(R.id.stv_person)
+        recycleview = view.findViewById(R.id.recycleview)
+        stv_one = view.findViewById(R.id.stv_one)
+        stv_two = view.findViewById(R.id.stv_two)
+        stv_person = view.findViewById(R.id.stv_two)
         stv_password_edit = view.findViewById(R.id.stv_password_edit)
         stv_favorite = view.findViewById(R.id.stv_favorite)
         stv_share = view.findViewById(R.id.stv_share)
@@ -71,7 +90,11 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
         stv_setting = view.findViewById(R.id.stv_setting)
         stv_feedback = view.findViewById(R.id.stv_feedback)
         stv_about = view.findViewById(R.id.stv_about)
+        stv_clear_cache = view.findViewById(R.id.stv_clear_cache)
         btn_logout = view.findViewById(R.id.btn_logout)
+        ll_person.setOnClickListener(this)
+        stv_one.setOnClickListener(this)
+        stv_two.setOnClickListener(this)
         stv_person.setOnClickListener(this)
         stv_password_edit.setOnClickListener(this)
         stv_favorite.setOnClickListener(this)
@@ -80,6 +103,7 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
         stv_setting.setOnClickListener(this)
         stv_feedback.setOnClickListener(this)
         stv_about.setOnClickListener(this)
+        stv_clear_cache.setOnClickListener(this)
         btn_logout.setOnClickListener(this)
 
     }
@@ -90,8 +114,41 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
         tv_department.text = personConfig.department
         getContext()?.let { ImageUtils.setRoundImage(it, img_head_view, personConfig.headviewUrl) }
 
-        stv_favorite.visibility = personConfig.showFavor
-        stv_share.visibility = personConfig.showShare
+        if (personConfig.personFuncList.size > 2) {
+            recycleview.visibility = View.VISIBLE
+            stv_one.visibility = View.GONE
+            stv_two.visibility = View.GONE
+
+            itemFuncAdapter = ItemFuncRecyclerViewAdapter(personConfig.personFuncList)
+            //纵向线性布局
+            val layoutManager = GridLayoutManager(context, 4)
+            recycleview.layoutManager = layoutManager
+            recycleview.adapter = itemFuncAdapter
+
+        } else if (personConfig.personFuncList.size == 1) {
+            recycleview.visibility = View.GONE
+            stv_one.visibility = View.VISIBLE
+            stv_two.visibility = View.GONE
+            stv_one.setLeftString(personConfig.personFuncList[0].itemName)
+            stv_one.setLeftIcon(personConfig.personFuncList[0].iconResource)
+        } else if (personConfig.personFuncList.size == 2) {
+            recycleview.visibility = View.GONE
+            stv_one.visibility = View.VISIBLE
+            stv_two.visibility = View.VISIBLE
+            stv_one.setLeftString(personConfig.personFuncList[0].itemName)
+            stv_one.setLeftIcon(personConfig.personFuncList[0].iconResource)
+            stv_two.setLeftString(personConfig.personFuncList[1].itemName)
+            stv_two.setLeftIcon(personConfig.personFuncList[1].iconResource)
+        } else {
+            recycleview.visibility = View.GONE
+            stv_one.visibility = View.GONE
+            stv_two.visibility = View.GONE
+        }
+
+//        stv_favorite.visibility = personConfig.showFavor
+//        stv_share.visibility = personConfig.showShare
+
+
         stv_scan.visibility = personConfig.showScan
         stv_setting.visibility = personConfig.showSetting
         stv_feedback.visibility = personConfig.showFeed
@@ -102,6 +159,15 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view?.id) {
+
+            R.id.ll_person -> {
+                val intent = Intent(activity, PersonInfoActivity::class.java)
+                intent.putExtra("userName", personConfig.userName)
+                intent.putExtra("department", personConfig.department)
+                intent.putExtra("headUrl", personConfig.headviewUrl)
+                startActivity(intent)
+            }
+
             R.id.stv_person -> {
                 val intent = Intent(activity, PersonInfoActivity::class.java)
                 intent.putExtra("userName", personConfig.userName)
@@ -185,7 +251,6 @@ class PersonInfoFragment : Fragment(), View.OnClickListener {
 
         }
     }
-
 
 
 }
